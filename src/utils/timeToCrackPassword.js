@@ -4,243 +4,169 @@ export const timeToCrackPassword = (password) => {
   const passwordLength = password.length;
 
   const numRegex = /^\d+$/;
-  const lowerCaseRegex = /^[\p{L}a-z]+$/u;
-  const upperCaseRegex = /^[\p{L}A-Z]+$/u;
-  const letterNumberRegex = /^[\p{L}0-9]+$/u;
+  const lowerCaseRegex = /^[a-z\u0080-\uFFFF]*$/; // /^[\p{L}a-z]+$/u   // = /^[\p{Ll}]+$/u;
+  const upperCaseRegex = /^[a-zA-Z\u0080-\uFFFF]*$/; // /^[\p{L}A-Z]+$/u
+  const letterNumberRegex = /^[a-zA-Z0-9\u0080-\uFFFF]*$/; ///^[\p{L}0-9]+$/u
   const letterNumberSymbolRegex = /^[\p{L}0-9\W]+$/u;
 
-  let lettersNumbersAndSymbols = false;
-  let lettersAndNumbersOnly = false;
-  let lettersOnly = false;
-  let lowercaseOnly = false;
-  let numbersOnly = false;
+  // check which kind of characters are in the password with each if statement
 
-  // check which kind of characters are in the password
-  if (letterNumberSymbolRegex.test(password)) {
-    lettersNumbersAndSymbols = true;
-  } else if (letterNumberRegex.test(password)) {
-    lettersAndNumbersOnly = true;
-  } else if (numRegex.test(password)) {
-    lettersOnly = true;
-  } else if (lowerCaseRegex.test(password)) {
-    lowercaseOnly = true;
-  } else if (upperCaseRegex.test(password)) {
-    numbersOnly = true;
-  } else {
-    return "Invalid Input";
+  if (numRegex.test(password)) {
+    if (passwordLength < 12) {
+      time = "instantly";
+      return time;
+    }
+    switch (passwordLength) {
+      case 12:
+        return "2 seconds";
+      case 13:
+        return "19 seconds";
+      case 14:
+        return "3 minutes";
+      case 15:
+        return "32 minutes";
+      case 16:
+        return "5 hours";
+      case 17:
+        return "2 days";
+      case 18:
+        return "3 weeks";
+      default:
+        return "a lot of time";
+    }
   }
 
-  if (lettersNumbersAndSymbols) {
+  if (lowerCaseRegex.test(password)) {
+    if (passwordLength < 9) {
+      return "instantly";
+    }
+    switch (passwordLength) {
+      case 9:
+        return "10 seconds";
+      case 10:
+        return "4 minutes";
+      case 11:
+        return "2 hours";
+      case 12:
+        return "2 days";
+      case 13:
+        return "2 months";
+      case 14:
+        return "4 years";
+      case 15:
+        return "100 years";
+      case 16:
+        return "3k years";
+      case 17:
+        return "69k years";
+      case 18:
+        return "2m years";
+      default:
+        time = "a lot of time";
+    }
+  }
+
+  if (upperCaseRegex.test(password)) {
     if (passwordLength < 7) {
       time = "instantly";
       return time;
     }
     switch (passwordLength) {
       case 7:
-        time = "31 seconds";
-        break;
+        return "2 seconds";
       case 8:
-        time = "39 minutes";
-        break;
+        return "2 minutes";
       case 9:
-        time = "2 days";
-        break;
+        return "1 hour";
       case 10:
-        time = "5 months";
-        break;
+        return "3 days";
       case 11:
-        time = "34 years";
-        break;
+        return "5 months";
       case 12:
-        time = "3k years";
-        break;
+        return "24 years";
       case 13:
-        time = "202k years";
-        break;
+        return "1k years";
       case 14:
-        time = "16m years";
-        break;
+        return "64k years";
       case 15:
-        time = "1bn years";
-        break;
+        return "3m years";
       case 16:
-        time = "92bn years";
-        break;
+        return "173m years";
       case 17:
-        time = "7tn years";
-        break;
+        return "9bn years";
       case 18:
-        time = "438tn years";
-        break;
+        return "467bn years";
       default:
         time = "a lot of time";
     }
+  }
 
-    if (lettersAndNumbersOnly) {
-      if (passwordLength < 7) {
-        time = "instantly";
-        return time;
-      }
-      switch (passwordLength) {
-        case 7:
-          time = "7 seconds";
-          break;
-        case 8:
-          time = "7 minutes";
-          break;
-        case 9:
-          time = "7 hours";
-          break;
-        case 10:
-          time = "3 weeks";
-          break;
-        case 11:
-          time = "3 years";
-          break;
-        case 12:
-          time = "200 years";
-          break;
-        case 13:
-          time = "12k years";
-          break;
-        case 14:
-          time = "750k years";
-          break;
-        case 15:
-          time = "46m years";
-          break;
-        case 16:
-          time = "3bn years";
-          break;
-        case 17:
-          time = "179bn years";
-          break;
-        case 18:
-          time = "11tn years";
-          break;
-        default:
-          time = "a lot of time";
-      }
+  if (letterNumberRegex.test(password)) {
+    if (passwordLength < 7) {
+      time = "instantly";
+      return time;
     }
-
-    if (lettersOnly) {
-      if (passwordLength < 7) {
-        time = "instantly";
-        return time;
-      }
-      switch (passwordLength) {
-        case 7:
-          time = "2 seconds";
-          break;
-        case 8:
-          time = "2 minutes";
-          break;
-        case 9:
-          time = "1 hour";
-          break;
-        case 10:
-          time = "3 days";
-          break;
-        case 11:
-          time = "5 months";
-          break;
-        case 12:
-          time = "24 years";
-          break;
-        case 13:
-          time = "1k years";
-          break;
-        case 14:
-          time = "64k years";
-          break;
-        case 15:
-          time = "3m years";
-          break;
-        case 16:
-          time = "173m years";
-          break;
-        case 17:
-          time = "9bn years";
-          break;
-        case 18:
-          time = "467bn years";
-          break;
-        default:
-          time = "a lot of time";
-      }
+    switch (passwordLength) {
+      case 7:
+        return "7 seconds";
+      case 8:
+        return "7 minutes";
+      case 9:
+        return "7 hours";
+      case 10:
+        return "3 weeks";
+      case 11:
+        return "3 years";
+      case 12:
+        return "200 years";
+      case 13:
+        return "12k years";
+      case 14:
+        return "750k years";
+      case 15:
+        return "46m years";
+      case 16:
+        return "3bn years";
+      case 17:
+        return "179bn years";
+      case 18:
+        return "11tn years";
+      default:
+        time = "a lot of time";
     }
+  }
 
-    if (lowercaseOnly) {
-      if (passwordLength < 9) {
-        time = "instantly";
-        return time;
-      }
-      switch (passwordLength) {
-        case 9:
-          time = "1o seconds";
-          break;
-        case 10:
-          time = "4 minutes";
-          break;
-        case 11:
-          time = "2 hours";
-          break;
-        case 12:
-          time = "2 days";
-          break;
-        case 13:
-          time = "2 months";
-          break;
-        case 14:
-          time = "4 years";
-          break;
-        case 15:
-          time = "100 years";
-          break;
-        case 16:
-          time = "3k years";
-          break;
-        case 17:
-          time = "69k years";
-          break;
-        case 18:
-          time = "2m years";
-          break;
-        default:
-          time = "a lot of time";
-      }
+  if (letterNumberSymbolRegex.test(password)) {
+    if (passwordLength < 7) {
+      return "instantly";
     }
-
-    if (numbersOnly) {
-      if (passwordLength < 12) {
-        time = "instantly";
-        return time;
-      }
-      switch (passwordLength) {
-        case 12:
-          time = "2 seconds";
-          break;
-        case 13:
-          time = "19 seconds";
-          break;
-        case 14:
-          time = "3 minutes";
-          break;
-        case 15:
-          time = "32 minutes";
-          break;
-        case 16:
-          time = "5 hours";
-          break;
-        case 17:
-          time = "2 days";
-          break;
-        case 18:
-          time = "3 weeks";
-          break;
-        default:
-          time = "a lot of time";
-      }
+    switch (passwordLength) {
+      case 7:
+        return "31 seconds";
+      case 8:
+        return "39 minutes";
+      case 9:
+        return "2 days";
+      case 10:
+        return "5 months";
+      case 11:
+        return "34 years";
+      case 12:
+        return "3k years";
+      case 13:
+        return "202k years";
+      case 14:
+        return "16m years";
+      case 15:
+        return "1bn years";
+      case 16:
+        return "92bn years";
+      case 17:
+        return "7tn years";
+      case 18:
+        return "438tn years";
+      default:
+        time = "a lot of time";
     }
 
     return time;
