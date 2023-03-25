@@ -3,16 +3,28 @@
 A tool to check password strength, estimated time to crack it, determine if it has been exposed in a data breach, and check if it is in dictionaries available online
 
 It was build with the help of the following tools:
+
 - [Have I Been Pwned Passwords API v3](https://haveibeenpwned.com/API/v3#PwnedPasswords)
 - [CrackStation's Password Cracking Dictionary, Smaller Wordlist (Human Passwords Only)
-](https://crackstation.net/crackstation-wordlist-password-cracking-dictionary.htm)
-- 
+  ](https://crackstation.net/crackstation-wordlist-password-cracking-dictionary.htm)
+-
 
-In the project directory, you can run:
+In the project directory, you should:
+
+- run `npm i` in both, `client` and `server` directory.
+- extract `realhuman_phill.zip` (from [https://crackstation.net/crackstation-wordlist-password-cracking-dictionary.htm](https://crackstation.net/crackstation-wordlist-password-cracking-dictionary.htm)) to `realhuman_phill.txt` in `server/public/files` - file exceeds git size limit
+
+## Backend
+
+### `nodemon ./bin/www`
+
+in `server` folder to start the server on port `3001`.
+
+## Frontend
 
 ### `npm start`
 
-Runs the app in the development mode.\
+in `client` folder runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
