@@ -4,6 +4,7 @@ import Dictionary from "./components/Dictionary";
 import Frontend from "./components/Frontend";
 import Noga from "./components/Noga";
 import Pwned from "./components/Pwned";
+import StrengthTest from "./components/StrengthTest";
 function App() {
   const [geslo, setGeslo] = useState("");
   const [isFoundInDictionary, setIsFoundInDictionary] = useState(null);
@@ -29,6 +30,7 @@ function App() {
           isLoading={isLoading}
         />
       )}
+      <StrengthTest geslo = {geslo}/>
     </div>
   );
 }

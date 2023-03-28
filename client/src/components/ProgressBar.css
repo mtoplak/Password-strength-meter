@@ -1,0 +1,36 @@
+.progress-bar {
+    width: 200px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #ddd;
+    overflow: hidden;
+}
+
+.progress-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-bar-filled {
+    height: 100%;
+    border-radius: 10px;
+    background-color: #5cb85c;
+    transition: width 0.5s ease;
+}
+
+.progress-bar-filled-weak {
+    background-color: #ff4136;
+}
+
+.progress-bar-filled-medium {
+    background-color: #ff851b;
+}
+
+.progress-bar-filled-medium2{
+    background-color: yellowgreen;
+}
+
+.progress-bar-filled-strong {
+    background-color: #5cb85c;
+}
