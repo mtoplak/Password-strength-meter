@@ -45,18 +45,6 @@ function StrengthTest(props) {
     simboliScore = simboliStevec * 6
     sredinaScore = sredinaStevec * 2
     let kocniScore = dolzinaScore + velikeCrkeScore + maleCrkeScore + stevilaScore + simboliScore + sredinaScore
-    console.log("stevecVlke" + " " + velikeCrkeStevec)
-    console.log("Vlke crke score" + " " + velikeCrkeScore)
-    console.log("stevecMale" + " " + maleCrkeStevec)
-    console.log("Male crke score" + " " + maleCrkeScore)
-    console.log("Stevila stevec" + " " + stevilaStevec)
-    console.log("Stevila score" + " " + stevilaScore)
-    console.log("Simboli stevec" + " " + simboliStevec)
-    console.log("Simboli score" + " " + simboliScore)
-    console.log("Sredina stevec" + " " + sredinaStevec)
-    console.log("Sredina score" + " " + sredinaScore)
-    console.log("Končni score" + kocniScore)
-    
 
     return (
         <ProgressBar score = {kocniScore}/>
