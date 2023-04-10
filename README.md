@@ -7,12 +7,12 @@ It was build with the help of the following tools:
 - [Have I Been Pwned Passwords API v3](https://haveibeenpwned.com/API/v3#PwnedPasswords)
 - [CrackStation's Password Cracking Dictionary, Smaller Wordlist (Human Passwords Only)
   ](https://crackstation.net/crackstation-wordlist-password-cracking-dictionary.htm)
--
+
 
 In the project directory, you should:
 
 - run `npm i` in both, `client` and `server` directory.
-- extract `realhuman_phill.zip` (from [https://crackstation.net/crackstation-wordlist-password-cracking-dictionary.htm](https://crackstation.net/crackstation-wordlist-password-cracking-dictionary.htm)) to `realhuman_phill.txt` in `server/public/files` - file exceeds git size limit
+- extract `realhuman_phill.txt` (from [https://crackstation.net/crackstation-wordlist-password-cracking-dictionary.htm](https://crackstation.net/crackstation-wordlist-password-cracking-dictionary.htm)) into `server/public/files` if you want to know if password can be found in dictionary (file exceeds git size limit)
 
 ## Backend
 

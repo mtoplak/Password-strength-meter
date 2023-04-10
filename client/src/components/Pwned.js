@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import sha1 from "sha1";
-import { timeToCrackPassword } from "../utils/timeToCrackPassword";
 
 // check if password was present in data breach
 function Pwned(props) {
   const geslo = props.geslo;
   const [numberOfBreaches, setNumberOfBreaches] = useState(0);
-  const [timeToCrack, setTimeToCrack] = useState("");
 
   useEffect(() => {
     const hashedPassword = sha1(geslo);
@@ -31,12 +29,11 @@ function Pwned(props) {
           );
           console.log(`Password found in data breach(es): ${numberBreaches}`);
           setNumberOfBreaches(numberBreaches);
-        } else{
+        } else {
           setNumberOfBreaches(0);
         }
       })
       .catch((error) => console.error(error));
-    setTimeToCrack(timeToCrackPassword(geslo));
   }, [geslo]);
 
   return (
@@ -44,23 +41,14 @@ function Pwned(props) {
       <div>
         {geslo && (
           <>
-            It would take <b>{timeToCrack}</b> to crack your password with
-            brute force.
-          </>
-        )}
-      </div>
-      <div>
-        {geslo && (
-          <>
-            Vaše geslo se je pojavilo v <b>{numberOfBreaches}</b> data
-            breach-ih.
+            Your password was found in <b>{numberOfBreaches}</b> data breaches.
           </>
         )}
       </div>
       <div>
         {geslo &&
           numberOfBreaches > 0 &&
-          "This password has previously appeared in a data breach and should never be used. If you've ever used it anywhere before, change it!"}
+          "This password has previously appeared in a data breach and should never be used again. If you've ever used it anywhere before, change it!"}
       </div>
     </div>
   );

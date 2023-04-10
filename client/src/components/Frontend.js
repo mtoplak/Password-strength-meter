@@ -18,10 +18,16 @@ const Frontend = ({
     // Set a new timeout to fetch data after 3.5 seconds
     timeoutRef.current = setTimeout(() => {
       fetchData(geslo);
-    }, 3500);
+    }, 2000);
   };
 
   const fetchData = async (geslo) => {
+    // If the input value is empty, don't fetch data
+    if (geslo === "") {
+      setIsFoundInDictionary(null);
+      setIsLoading(false);
+      return;
+    }
     // Fetch data based on the input value
     console.log(`Fetching data for ${geslo}`);
     const response = await fetch("http://localhost:3001/password", {
@@ -44,7 +50,7 @@ const Frontend = ({
       <div className="pwd-container">
         <input
           name="pwd"
-          placeholder="Vpišite geslo"
+          placeholder="Enter your password"
           type={isShownPassword ? "text" : "password"}
           value={geslo}
           onChange={(e) => {
@@ -60,9 +66,13 @@ const Frontend = ({
           onClick={() => setIsShownPassword((prevState) => !prevState)}
         />
       </div>
+      <br />
       <br></br>
-      <br></br>
-      Vaše geslo vsebuje: <b>{geslo.length}</b> znakov!
+      {geslo.length > 0 && (
+        <>
+          Your password contains <b>{geslo.length}</b> characters!
+        </>
+      )}
     </div>
   );
 };

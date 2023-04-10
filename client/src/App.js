@@ -5,6 +5,8 @@ import Frontend from "./components/Frontend";
 import Noga from "./components/Noga";
 import Pwned from "./components/Pwned";
 import StrengthTest from "./components/StrengthTest";
+import TimeToCrack from "./components/TimeToCrack";
+
 function App() {
   const [geslo, setGeslo] = useState("");
   const [isFoundInDictionary, setIsFoundInDictionary] = useState(null);
@@ -17,20 +19,28 @@ function App() {
   return (
     <div className="App">
       <Noga />
-      <Frontend
-        geslo={geslo}
-        setGeslo={setGeslo}
-        setIsFoundInDictionary={setIsFoundInDictionary}
-        setIsLoading={setIsLoading}
-      />
-      <Pwned geslo={geslo} setGeslo={setGeslo} />
-      {isFoundInDictionary !== null && geslo !== "" && (
-        <Dictionary
-          isFoundIndictionary={isFoundInDictionary}
-          isLoading={isLoading}
+      <br />
+      <div className="results">
+        <Frontend
+          geslo={geslo}
+          setGeslo={setGeslo}
+          setIsFoundInDictionary={setIsFoundInDictionary}
+          setIsLoading={setIsLoading}
         />
-      )}
-      <StrengthTest geslo = {geslo}/>
+        <br />
+        <TimeToCrack geslo={geslo} />
+        <br />
+        <Pwned geslo={geslo} setGeslo={setGeslo} />
+        <br />
+        {geslo !== "" && (
+          <Dictionary
+            isFoundIndictionary={isFoundInDictionary}
+            isLoading={isLoading}
+          />
+        )}
+        <br />
+        <StrengthTest geslo={geslo} />
+      </div>
     </div>
   );
 }

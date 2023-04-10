@@ -2,18 +2,16 @@ import React from "react";
 
 function Dictionary({ isFoundIndictionary, isLoading }) {
   return (
-    <div>
-      {isLoading && "Loading... "}
-      Your password
-      <b>
-        {isLoading
-          ? " ? "
-          : isFoundIndictionary === false
-          ? " WAS NOT "
-          : " WAS "}
-      </b>
-      found in online dictionary!
-      {isFoundIndictionary === false && " Great!"}
+    <div className="container">
+      {isLoading && <div className="loader"></div>}
+      {isLoading === false && (
+        <div className="text">
+          Your password
+          <b>{isFoundIndictionary === false ? " was not " : " was "}</b>
+          found in an online dictionary!
+          {isFoundIndictionary === false && " Great!"}
+        </div>
+      )}
     </div>
   );
 }
