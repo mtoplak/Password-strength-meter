@@ -41,14 +41,15 @@ function Pwned(props) {
       <div>
         {geslo && (
           <>
-            Your password was found in <b>{numberOfBreaches}</b> data breaches.
+            Vaše geslo se je pojavilo v <b>{numberOfBreaches}</b> data
+            breach-ih.
           </>
         )}
       </div>
       <div>
         {geslo &&
           numberOfBreaches > 0 &&
-          "This password has previously appeared in a data breach and should never be used again. If you've ever used it anywhere before, change it!"}
+          "To geslo se je že pojavilo pri vdoru podatkov zato ga spremenite in ne uporabljajte več!"}
       </div>
     </div>
   );

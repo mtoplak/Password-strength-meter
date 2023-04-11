@@ -50,7 +50,7 @@ const Frontend = ({
       <div className="pwd-container">
         <input
           name="pwd"
-          placeholder="Enter your password"
+          placeholder="Vpišite geslo"
           type={isShownPassword ? "text" : "password"}
           value={geslo}
           onChange={(e) => {
@@ -60,7 +60,7 @@ const Frontend = ({
           }}
         />
         <img
-          title={isShownPassword ? "Hide password" : "Show password"}
+          title={isShownPassword ? "Skrij geslo" : "Pokaži geslo"}
           src={isShownPassword ? hidePwdImg : showPwdImg}
           alt="Show/Hide password"
           onClick={() => setIsShownPassword((prevState) => !prevState)}
@@ -70,7 +70,7 @@ const Frontend = ({
       <br></br>
       {geslo.length > 0 && (
         <>
-          Your password contains <b>{geslo.length}</b> characters!
+          Vaše geslo vsebuje <b>{geslo.length}</b> znakov!
         </>
       )}
     </div>

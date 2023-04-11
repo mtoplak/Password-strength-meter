@@ -12,8 +12,8 @@ function TimeToCrack({ geslo }) {
     <div>
       {geslo && (
         <>
-          It would take <b>{timeToCrack}</b> to crack your password with brute
-          force.
+          Čas potreben za razbitje vašega gesla s surovo silo:{" "}
+          <b>{timeToCrack}</b>
         </>
       )}
     </div>

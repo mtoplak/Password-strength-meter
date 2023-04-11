@@ -6,10 +6,10 @@ function Dictionary({ isFoundIndictionary, isLoading }) {
       {isLoading && <div className="loader"></div>}
       {isLoading === false && (
         <div className="text">
-          Your password
-          <b>{isFoundIndictionary === false ? " was not " : " was "}</b>
-          found in an online dictionary!
-          {isFoundIndictionary === false && " Great!"}
+          Vaše geslo
+          <b>{isFoundIndictionary === false ? " ni " : " je "}</b>
+          bilo najdeno v slovarju, ki je na voljo na spletu!
+          {isFoundIndictionary === false && " Super!"}
         </div>
       )}
     </div>

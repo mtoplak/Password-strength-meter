@@ -13,7 +13,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    document.title = "Password Strength Checker";
+    document.title = "Napredni preverjalnik gesel";
   }, []);
 
   return (
