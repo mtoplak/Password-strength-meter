@@ -13,160 +13,160 @@ export const timeToCrackPassword = (password) => {
 
   if (numRegex.test(password)) {
     if (passwordLength < 12) {
-      time = "instantly";
+      time = "takoj";
       return time;
     }
     switch (passwordLength) {
       case 12:
-        return "2 seconds";
+        return "2 sekundi";
       case 13:
-        return "19 seconds";
+        return "19 sekundi";
       case 14:
-        return "3 minutes";
+        return "3 minute";
       case 15:
-        return "32 minutes";
+        return "32 minut";
       case 16:
-        return "5 hours";
+        return "5 ur";
       case 17:
-        return "2 days";
+        return "2 dneva";
       case 18:
-        return "3 weeks";
+        return "3 tedne";
       default:
-        return "a lot of time";
+        return "ogromno časa";
     }
   }
 
   if (lowerCaseRegex.test(password)) {
     if (passwordLength < 9) {
-      return "instantly";
+      return "takoj";
     }
     switch (passwordLength) {
       case 9:
-        return "10 seconds";
+        return "10 sekund";
       case 10:
-        return "4 minutes";
+        return "4 minute";
       case 11:
-        return "2 hours";
+        return "2 uri";
       case 12:
-        return "2 days";
+        return "2 dneva";
       case 13:
-        return "2 months";
+        return "2 meseca";
       case 14:
-        return "4 years";
+        return "4 leta";
       case 15:
-        return "100 years";
+        return "100 let";
       case 16:
-        return "3k years";
+        return "3k let";
       case 17:
-        return "69k years";
+        return "69k let";
       case 18:
-        return "2m years";
+        return "2m let";
       default:
-        time = "a lot of time";
+        time = "ogromno časa";
     }
   }
 
   if (upperCaseRegex.test(password)) {
     if (passwordLength < 7) {
-      time = "instantly";
+      time = "takoj";
       return time;
     }
     switch (passwordLength) {
       case 7:
-        return "2 seconds";
+        return "2 sekundi";
       case 8:
-        return "2 minutes";
+        return "2 minuti";
       case 9:
-        return "1 hour";
+        return "1 uro";
       case 10:
-        return "3 days";
+        return "3 dni";
       case 11:
-        return "5 months";
+        return "5 mesecev";
       case 12:
-        return "24 years";
+        return "24 let";
       case 13:
-        return "1k years";
+        return "1k let";
       case 14:
-        return "64k years";
+        return "64k let";
       case 15:
-        return "3m years";
+        return "3m let";
       case 16:
-        return "173m years";
+        return "173m let";
       case 17:
-        return "9bn years";
+        return "9bn let";
       case 18:
-        return "467bn years";
+        return "467bn let";
       default:
-        time = "a lot of time";
+        time = "ogromno časa";
     }
   }
 
   if (letterNumberRegex.test(password)) {
     if (passwordLength < 7) {
-      time = "instantly";
+      time = "takoj";
       return time;
     }
     switch (passwordLength) {
       case 7:
-        return "7 seconds";
+        return "7 sekund";
       case 8:
-        return "7 minutes";
+        return "7 minut";
       case 9:
-        return "7 hours";
+        return "7 ur";
       case 10:
-        return "3 weeks";
+        return "3 tedne";
       case 11:
-        return "3 years";
+        return "3 leta";
       case 12:
-        return "200 years";
+        return "200 let";
       case 13:
-        return "12k years";
+        return "12k let";
       case 14:
-        return "750k years";
+        return "750k let";
       case 15:
-        return "46m years";
+        return "46m let";
       case 16:
-        return "3bn years";
+        return "3bn let";
       case 17:
-        return "179bn years";
+        return "179bn let";
       case 18:
-        return "11tn years";
+        return "11tn let";
       default:
-        time = "a lot of time";
+        time = "ogromno časa";
     }
   }
 
   if (letterNumberSymbolRegex.test(password)) {
     if (passwordLength < 7) {
-      return "instantly";
+      return "takoj";
     }
     switch (passwordLength) {
       case 7:
-        return "31 seconds";
+        return "31 sekund";
       case 8:
-        return "39 minutes";
+        return "39 minut";
       case 9:
-        return "2 days";
+        return "2 dneva";
       case 10:
-        return "5 months";
+        return "5 mesecev";
       case 11:
-        return "34 years";
+        return "34 let";
       case 12:
-        return "3k years";
+        return "3k let";
       case 13:
-        return "202k years";
+        return "202k let";
       case 14:
-        return "16m years";
+        return "16m let";
       case 15:
-        return "1bn years";
+        return "1bn let";
       case 16:
-        return "92bn years";
+        return "92bn let";
       case 17:
-        return "7tn years";
+        return "7tn let";
       case 18:
-        return "438tn years";
+        return "438tn let";
       default:
-        time = "a lot of time";
+        time = "ogromno časa";
     }
 
     return time;
